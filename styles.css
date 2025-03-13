@@ -57,29 +57,310 @@ form label, form input, form button {
     font-size: 25px;
 }
 
-.library-container {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(3, 100px);
-    grid-gap: 10px;
-    justify-content: center;
-    margin-top: 20px;
-    position: relative;
+/* 모든 shelf의 ::after 내용을 숨깁니다. */
+.shelf::after {
+    content: none !important;
 }
 
-.library-container .shelf {
-    width: 100px;
-    height: 80px;
+/* shelf 클래스에 대한 기본 스타일 */
+.shelf {
+    width: 40px;
+    height: 40px;
     background-color: #e0e0e0;
-    border: 2px solid #333;
-    border-radius: 5px;
+    border: 1px solid #333;
+    border-radius: 3px;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: bold;
+    color: transparent; /* 글자 숨기기 */
+}
+
+/* highlight 클래스 스타일 */
+.shelf.highlight {
+    background-color: rgb(59, 95, 255);
+    box-shadow: 0 0 10px rgba(0, 81, 255, 0.8);
+}
+
+/* 책장 번호를 숨기고 숫자 표시 제거 */
+.shelf::after {
+    content: none !important;
+}
+
+/* 숫자 ID가 'shelf-1'부터 'shelf-357'까지인 모든 책장 숨기기 */
+[class^="shelf-"]::after {
+    content: none !important;
+}
+.shelf.highlight {
+    background-color: rgb(59, 95, 255);
+    box-shadow: 0 0 10px rgba(0, 81, 255, 0.8);
 }
 
 /*.library-container .shelf:nth-child(4),
 .library-container .shelf:nth-child(8),
 .library-container .shelf:nth-child(12) {
     visibility: hidden; }/* 해당 칸 비움 */
+    .library-container .shelf:nth-child(0),
+    .library-container .shelf:nth-child(1),
+    .library-container .shelf:nth-child(2),
+    .library-container .shelf:nth-child(3),
+    .library-container .shelf:nth-child(4),
+    .library-container .shelf:nth-child(5),
+    .library-container .shelf:nth-child(6),
+    .library-container .shelf:nth-child(7),
+    .library-container .shelf:nth-child(8),
+    .library-container .shelf:nth-child(9),
+    .library-container .shelf:nth-child(10),
+    .library-container .shelf:nth-child(11),
+    .library-container .shelf:nth-child(12),
+    .library-container .shelf:nth-child(13),
+    .library-container .shelf:nth-child(16),
+    .library-container .shelf:nth-child(17),
+    .library-container .shelf:nth-child(18),
+    .library-container .shelf:nth-child(19),
+    .library-container .shelf:nth-child(20),
+    .library-container .shelf:nth-child(21),
+    .library-container .shelf:nth-child(22),
+    .library-container .shelf:nth-child(23),
+    .library-container .shelf:nth-child(24),
+    .library-container .shelf:nth-child(25),
+    .library-container .shelf:nth-child(26),
+    .library-container .shelf:nth-child(27),
+    .library-container .shelf:nth-child(28),
+    .library-container .shelf:nth-child(29),
+    .library-container .shelf:nth-child(31),
+    .library-container .shelf:nth-child(32),
+    .library-container .shelf:nth-child(34),
+    .library-container .shelf:nth-child(35),
+    .library-container .shelf:nth-child(36),
+    .library-container .shelf:nth-child(37),
+    .library-container .shelf:nth-child(38),
+    .library-container .shelf:nth-child(39),
+    .library-container .shelf:nth-child(40),
+    .library-container .shelf:nth-child(41),
+    .library-container .shelf:nth-child(42),
+    .library-container .shelf:nth-child(43),
+    .library-container .shelf:nth-child(44),
+    .library-container .shelf:nth-child(45),
+    .library-container .shelf:nth-child(46),
+    .library-container .shelf:nth-child(48),
+    .library-container .shelf:nth-child(51),
+    .library-container .shelf:nth-child(52),
+    .library-container .shelf:nth-child(53),
+    .library-container .shelf:nth-child(54),
+    .library-container .shelf:nth-child(55),
+    .library-container .shelf:nth-child(56),
+    .library-container .shelf:nth-child(57),
+    .library-container .shelf:nth-child(58),
+    .library-container .shelf:nth-child(59),
+    .library-container .shelf:nth-child(60),
+    .library-container .shelf:nth-child(61),
+    .library-container .shelf:nth-child(62),
+    .library-container .shelf:nth-child(63),
+    .library-container .shelf:nth-child(65),
+    .library-container .shelf:nth-child(68),
+    .library-container .shelf:nth-child(69),
+    .library-container .shelf:nth-child(70),
+    .library-container .shelf:nth-child(71),
+    .library-container .shelf:nth-child(72),
+    .library-container .shelf:nth-child(73),
+    .library-container .shelf:nth-child(74),
+    .library-container .shelf:nth-child(75),
+    .library-container .shelf:nth-child(76),
+    .library-container .shelf:nth-child(77),
+    .library-container .shelf:nth-child(78),
+    .library-container .shelf:nth-child(79),
+    .library-container .shelf:nth-child(80),
+    .library-container .shelf:nth-child(82),
+    .library-container .shelf:nth-child(85),
+    .library-container .shelf:nth-child(86),
+    .library-container .shelf:nth-child(87),
+    .library-container .shelf:nth-child(88),
+    .library-container .shelf:nth-child(89),
+    .library-container .shelf:nth-child(90),
+    .library-container .shelf:nth-child(91),
+    .library-container .shelf:nth-child(92),
+    .library-container .shelf:nth-child(93),
+    .library-container .shelf:nth-child(94),
+    .library-container .shelf:nth-child(95),
+    .library-container .shelf:nth-child(96),
+    .library-container .shelf:nth-child(97),
+    .library-container .shelf:nth-child(99),
+    .library-container .shelf:nth-child(102),
+    .library-container .shelf:nth-child(103),
+    .library-container .shelf:nth-child(104),
+    .library-container .shelf:nth-child(105),
+    .library-container .shelf:nth-child(106),
+    .library-container .shelf:nth-child(107),
+    .library-container .shelf:nth-child(108),
+    .library-container .shelf:nth-child(109),
+    .library-container .shelf:nth-child(110),
+    .library-container .shelf:nth-child(111),
+    .library-container .shelf:nth-child(112),
+    .library-container .shelf:nth-child(113),
+    .library-container .shelf:nth-child(114),
+    .library-container .shelf:nth-child(116),
+    .library-container .shelf:nth-child(117),
+    .library-container .shelf:nth-child(119),
+    .library-container .shelf:nth-child(120),
+    .library-container .shelf:nth-child(121),
+    .library-container .shelf:nth-child(122),
+    .library-container .shelf:nth-child(123),
+    .library-container .shelf:nth-child(124),
+    .library-container .shelf:nth-child(125),
+    .library-container .shelf:nth-child(126),
+    .library-container .shelf:nth-child(127),
+    .library-container .shelf:nth-child(128),
+    .library-container .shelf:nth-child(129),
+    .library-container .shelf:nth-child(130),
+    .library-container .shelf:nth-child(131),
+    .library-container .shelf:nth-child(133),
+    .library-container .shelf:nth-child(134),
+    .library-container .shelf:nth-child(135),
+    .library-container .shelf:nth-child(136),
+    .library-container .shelf:nth-child(137),
+    .library-container .shelf:nth-child(138),
+    .library-container .shelf:nth-child(146),
+    .library-container .shelf:nth-child(147),
+    .library-container .shelf:nth-child(148),
+    .library-container .shelf:nth-child(150),
+    .library-container .shelf:nth-child(151),
+    .library-container .shelf:nth-child(153),
+    .library-container .shelf:nth-child(154),
+    .library-container .shelf:nth-child(155),
+    .library-container .shelf:nth-child(156),
+    .library-container .shelf:nth-child(157),
+    .library-container .shelf:nth-child(158),
+    .library-container .shelf:nth-child(159),
+    .library-container .shelf:nth-child(160),
+    .library-container .shelf:nth-child(161),
+    .library-container .shelf:nth-child(162),
+    .library-container .shelf:nth-child(163),
+    .library-container .shelf:nth-child(164),
+    .library-container .shelf:nth-child(165),
+    .library-container .shelf:nth-child(166),
+    .library-container .shelf:nth-child(167),
+    .library-container .shelf:nth-child(168),
+    .library-container .shelf:nth-child(170),
+    .library-container .shelf:nth-child(172),
+    .library-container .shelf:nth-child(175),
+    .library-container .shelf:nth-child(178),
+    .library-container .shelf:nth-child(181),
+    .library-container .shelf:nth-child(184),
+    .library-container .shelf:nth-child(187),
+    .library-container .shelf:nth-child(189),
+    .library-container .shelf:nth-child(192),
+    .library-container .shelf:nth-child(195),
+    .library-container .shelf:nth-child(198),
+    .library-container .shelf:nth-child(201),
+    .library-container .shelf:nth-child(204),
+    .library-container .shelf:nth-child(205),
+    .library-container .shelf:nth-child(206),
+    .library-container .shelf:nth-child(209),
+    .library-container .shelf:nth-child(212),
+    .library-container .shelf:nth-child(215),
+    .library-container .shelf:nth-child(218),
+    .library-container .shelf:nth-child(221),
+    .library-container .shelf:nth-child(223),
+    .library-container .shelf:nth-child(226),
+    .library-container .shelf:nth-child(229),
+    .library-container .shelf:nth-child(232),
+    .library-container .shelf:nth-child(233),
+    .library-container .shelf:nth-child(234),
+    .library-container .shelf:nth-child(235),
+    .library-container .shelf:nth-child(238),
+.library-container .shelf:nth-child(240),
+.library-container .shelf:nth-child(243),
+.library-container .shelf:nth-child(246),
+.library-container .shelf:nth-child(249),
+.library-container .shelf:nth-child(250),
+.library-container .shelf:nth-child(251),
+.library-container .shelf:nth-child(252),
+.library-container .shelf:nth-child(255),
+.library-container .shelf:nth-child(257),
+.library-container .shelf:nth-child(258),
+.library-container .shelf:nth-child(259),
+.library-container .shelf:nth-child(260),
+.library-container .shelf:nth-child(261),
+.library-container .shelf:nth-child(262),
+.library-container .shelf:nth-child(263),
+.library-container .shelf:nth-child(264),
+.library-container .shelf:nth-child(265),
+.library-container .shelf:nth-child(266),
+.library-container .shelf:nth-child(267),
+.library-container .shelf:nth-child(268),
+.library-container .shelf:nth-child(269),
+.library-container .shelf:nth-child(270),
+.library-container .shelf:nth-child(271),
+.library-container .shelf:nth-child(272),
+.library-container .shelf:nth-child(274),
+.library-container .shelf:nth-child(277),
+.library-container .shelf:nth-child(280),
+.library-container .shelf:nth-child(283),
+.library-container .shelf:nth-child(284),
+.library-container .shelf:nth-child(285),
+.library-container .shelf:nth-child(286),
+.library-container .shelf:nth-child(287),
+.library-container .shelf:nth-child(288),
+.library-container .shelf:nth-child(289),
+.library-container .shelf:nth-child(291),
+.library-container .shelf:nth-child(294),
+.library-container .shelf:nth-child(297),
+.library-container .shelf:nth-child(300),
+.library-container .shelf:nth-child(301),
+.library-container .shelf:nth-child(302),
+.library-container .shelf:nth-child(303),
+.library-container .shelf:nth-child(304),
+.library-container .shelf:nth-child(305),
+.library-container .shelf:nth-child(306),
+.library-container .shelf:nth-child(307),
+.library-container .shelf:nth-child(308),
+.library-container .shelf:nth-child(311),
+.library-container .shelf:nth-child(314),
+.library-container .shelf:nth-child(317),
+.library-container .shelf:nth-child(318),
+.library-container .shelf:nth-child(319),
+.library-container .shelf:nth-child(320),
+.library-container .shelf:nth-child(321),
+.library-container .shelf:nth-child(322),
+.library-container .shelf:nth-child(323),
+.library-container .shelf:nth-child(325),
+.library-container .shelf:nth-child(326),
+.library-container .shelf:nth-child(327),
+.library-container .shelf:nth-child(328),
+.library-container .shelf:nth-child(329),
+.library-container .shelf:nth-child(330),
+.library-container .shelf:nth-child(331),
+.library-container .shelf:nth-child(332),
+.library-container .shelf:nth-child(333),
+.library-container .shelf:nth-child(334),
+.library-container .shelf:nth-child(335),
+.library-container .shelf:nth-child(336),
+.library-container .shelf:nth-child(337),
+.library-container .shelf:nth-child(338),
+.library-container .shelf:nth-child(339),
+.library-container .shelf:nth-child(340),
+.library-container .shelf:nth-child(342),
+.library-container .shelf:nth-child(343),
+.library-container .shelf:nth-child(344),
+.library-container .shelf:nth-child(345),
+.library-container .shelf:nth-child(346),
+.library-container .shelf:nth-child(347),
+.library-container .shelf:nth-child(348),
+.library-container .shelf:nth-child(349),
+.library-container .shelf:nth-child(350),
+.library-container .shelf:nth-child(351),
+.library-container .shelf:nth-child(352),
+.library-container .shelf:nth-child(353),
+.library-container .shelf:nth-child(354),
+.library-container .shelf:nth-child(355),
+.library-container .shelf:nth-child(356),
+.library-container .shelf:nth-child(357),
+.library-container .shelf:nth-child(358) {
+    visibility: hidden;
+} 
 
 .shelf {
     display: flex;
