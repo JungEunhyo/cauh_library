@@ -828,18 +828,7 @@ const books = [
 { "book_number": "381", "shelf_number": 299 },
 { "book_number": "372", "shelf_number": 316 },
 { "book_number": "373", "shelf_number": 316 }
-
-
-
-
-
-
-
-
-
-
-    
-    // 더 많은 책 추가 가능
+   // 더 많은 책 추가 가능
 ];
 
 
